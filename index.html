@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akıllı Posta Kutusu Paneli</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loginScreen" class="login-wrapper">
+    <div class="login-card">
+        <div class="login-logo"><i class="fa-solid fa-envelopes-bulk"></i></div>
+        <h2>Sisteme Giriş</h2>
+        <div class="input-group">
+            <i class="fa-solid fa-at"></i>
+            <input type="email" id="emailInp" placeholder="E-Posta Adresiniz">
+        </div>
+        <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="passInp" placeholder="Şifreniz">
+        </div>
+        <div class="input-group">
+            <i class="fa-solid fa-microchip"></i>
+            <input type="text" id="deviceInp" placeholder="Cihaz Kodu (Örn: ESP32_A)">
+        </div>
+        
+        <button class="btn btn-login" onclick="girisYap()"><i class="fa-solid fa-right-to-bracket"></i> Giriş Yap</button>
+        <button class="btn btn-register" onclick="kayitOl()"><i class="fa-solid fa-user-plus"></i> Yeni Kayıt</button>
+        <p id="hataMesaji" class="error-msg"></p>
+    </div>
+</div>
+
+<div id="mainPanel" style="display: none;">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-mailbox"></i> Akıllı Posta Yönetimi
+        </div>
+        <div class="nav-user">
+            <span id="kullaniciMail" class="user-mail"></span>
+            <span id="roleBadge" class="badge">YÜKLENİYOR...</span>
+            <button class="btn-logout" onclick="cikisYap()"><i class="fa-solid fa-power-off"></i> Çıkış</button>
+        </div>
+    </nav>
+
+    <div class="container" id="devicesContainer">
+        <div class="loading-box">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <h3>Veriler Yükleniyor...</h3>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #94a3b8;
+}
+
+body { font-family: 'Poppins', sans-serif; background-color: #e2e8f0; margin: 0; color: #334155; }
+
+/* --- GİRİŞ EKRANI --- */
+.login-wrapper { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+.login-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 350px; text-align: center; }
+.login-logo { font-size: 50px; color: var(--primary); margin-bottom: 10px; }
+.input-group { position: relative; margin-bottom: 15px; }
+.input-group i { position: absolute; left: 15px; top: 15px; color: var(--gray); }
+.input-group input { width: 80%; padding: 12px 15px 12px 40px; border: 1px solid #cbd5e1; border-radius: 10px; font-family: 'Poppins'; outline: none; transition: 0.3s; }
+.input-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2); }
+.error-msg { color: var(--danger); font-size: 13px; margin-top: 10px; }
+
+/* --- ANA PANEL VE NAVBAR --- */
+.navbar { background: var(--dark); color: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.nav-brand { font-size: 20px; font-weight: 600; }
+.nav-user { display: flex; align-items: center; gap: 15px; }
+.badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+.badge-admin { background: var(--danger); color: white; }
+.badge-user { background: var(--success); color: white; }
+
+.container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.loading-box { text-align: center; color: var(--gray); margin-top: 100px; font-size: 24px; }
+
+/* --- CİHAZ KARTLARI VE SEKMELER --- */
+.device-card { background: white; border-radius: 15px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 30px; }
+.device-header { background: #f1f5f9; padding: 20px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+.device-header h2 { margin: 0; color: var(--dark); font-size: 22px; }
+
+.tab-menu { display: flex; background: white; border-bottom: 2px solid #e2e8f0; }
+.tab-btn { flex: 1; padding: 15px; background: none; border: none; font-size: 15px; font-weight: 600; color: var(--gray); cursor: pointer; transition: 0.3s; font-family: 'Poppins'; }
+.tab-btn:hover { background: #f8fafc; color: var(--primary); }
+.tab-btn.active { color: var(--primary); border-bottom: 3px solid var(--primary); background: #f8fafc; }
+
+.tab-content { padding: 30px; display: none; animation: fadeIn 0.4s ease; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.mail-count-box { text-align: center; padding: 20px; background: #fffbeb; border-radius: 10px; border: 1px dashed var(--warning); }
+.mail-count-box h1 { font-size: 60px; color: var(--warning); margin: 0; line-height: 1; }
+
+.log-box { background: var(--dark); color: #a1a1aa; padding: 20px; height: 350px; overflow-y: auto; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 14px; }
+
+.btn { border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.3s; font-family: 'Poppins'; width: 100%; margin-top: 10px; color: white; }
+.btn-login { background: var(--primary); }
+.btn-login:hover { background: var(--secondary); }
+.btn-register { background: var(--dark); }
+.btn-reset { background: var(--warning); width: auto; }
+.btn-logout { background: var(--danger); border: none; padding: 8px 15px; border-radius: 5px; color: white; cursor: pointer; font-family: 'Poppins'; }
+
+/* ========================================= */
+/* FİLTRE VE LOG STİLLERİ (SAATLİ SİSTEM) */
+/* ========================================= */
+.filter-bar { background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 15px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; border: 1px solid #e2e8f0; }
+.filter-bar input[type="date"], .filter-bar input[type="datetime-local"] { padding: 8px; border: 1px solid #cbd5e1; border-radius: 5px; font-family: 'Poppins'; outline: none; }
+.filter-select { padding: 8px; border: 1px solid #cbd5e1; border-radius: 5px; font-family: 'Poppins'; outline: none; background: white; cursor: pointer;}
+.btn-filter { background: var(--primary); padding: 8px 15px; color: white; border: none; border-radius: 5px; cursor: pointer; font-family: 'Poppins'; font-weight: 600;}
+
+.log-item { padding: 10px; border-radius: 5px; margin-bottom: 8px; display: flex; align-items: center; border-left: 5px solid transparent; background: #273447; }
+.log-item.id-1 { border-left-color: #3b82f6; } 
+.log-item.id-2 { border-left-color: #10b981; } 
+.log-item.id-3 { border-left-color: #ef4444; } 
+.log-item.id-4 { border-left-color: #f59e0b; } 
+.log-icon { margin-right: 15px; font-size: 20px; width: 30px; text-align: center; color: white;}
