@@ -1,0 +1,36 @@
+name: PHP Backend CI
+
+on:
+  push:
+    branches: [ "main" ] # Main dalına kod geldiğinde çalışır
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Kodu sunucuya çeker
+      - uses: actions/checkout@v3
+
+      # 2. PHP'yi kurar (Kullandığın sürüme göre değiştir)
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      # 3. Composer paketlerini (Slim, Firebase vs.) kurar
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      # 4. GitHub Secrets'tan aldığı gizli key'i sisteme enjekte eder!
+      - name: Run Scripts / Deploy
+        env:
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_DB_URL: ${{ secrets.FIREBASE_DB_URL }}
+        run: |
+          echo "Projeye bagimliliklar basariyla kuruldu."
+          echo "API Key guvenli bir sekilde enjekte edildi (Ekrana Basilmaz!)."
+          # İleride test kodların olursa buraya eklersin:
+          # vendor/bin/phpunit

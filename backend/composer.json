@@ -1,0 +1,19 @@
+{
+    "name": "msi/backend",
+    "autoload": {
+        "psr-4": {
+            "Msi\\Backend\\": "/"
+        }
+    },
+    "authors": [
+        {
+            "name": "vysblt",
+            "email": "240928018@ogr.comu.edu.tr"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6", //env eklemeyi kullanmayı öğren 
+        "slim/slim": "4.*", //end point öğren 
+        "kreait/firebase-php": "^8.2" //firebase methodlarına bak 
+    }
+}
